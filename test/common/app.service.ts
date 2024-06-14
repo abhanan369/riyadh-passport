@@ -1,6 +1,8 @@
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ForbiddenException,
   Injectable,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   UnauthorizedException
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -31,7 +33,15 @@ export class AppService {
   getToken({ username, id }: { username: string; id: string }): {
     token: string;
   } {
-    return { token: this.jwtService.sign({ username, id }) };
+    return {
+      token: this.jwtService.sign({ username, id }, {
+        secret: 'JWT_SECRET',
+        algorithm: 'HS256',
+        expiresIn: '6h',
+        audience: 'aud-user',
+        issuer: 'issu-user',
+      })
+    };
   }
 
   findUser({ username, password }: { username: string; password: string }): {

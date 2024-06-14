@@ -12,7 +12,7 @@ import { LocalStrategy } from '../common/local.strategy';
     JwtModule.register({
       secret: 's3cr3t'
     }),
-    PassportModule
+    // PassportModule
   ],
   providers: [AppService, LocalStrategy, JwtStrategy]
 })
