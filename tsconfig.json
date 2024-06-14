@@ -13,6 +13,6 @@
     "rootDir": "./",
     "skipLibCheck": true
   },
-  "include": ["lib/**/*", "../index.ts", "test/**/*"],
+  "include": ["src/**/*", "lib/**/*", "../index.ts", "test/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
